@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardioAI | Heart Disease Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <h2>❤️ CardioAI</h2>
+        <span>Heart Health Intelligence</span>
+        <p class="developer-name">
+    Developed by <strong>Vivek Kolpe</strong>
+</p>
+        <button id="logoutBtn" class="logout-btn">
+            <span>↪</span> Logout
+        </button>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Heart Disease<br>Prediction</h1>
+        <p>
+            Analyzing risk factors to forecast likelihood of
+            developing heart conditions.
+        </p>
+    </div>
+
+    <div class="hero-art">
+        <img src="heart.png" alt="3D Anatomical Human Heart">
+    </div>
+</section>
+
+    
+<!-- Information Cards -->
+<section class="info-cards">
+
+    <div class="info-card">
+        <img
+            src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600"
+            alt="Heart health"
+        >
+        <div class="info-card-content">
+            <h3>Risk Factor Analysis</h3>
+            <p>
+                Understand lifestyle, health and environmental
+                factors associated with heart disease.
+            </p>
+        </div>
+    </div>
+
+    <div class="info-card">
+        <img
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600"
+            alt="Medical assessment"
+        >
+        <div class="info-card-content">
+            <h3>Clinical Assessments</h3>
+            <p>
+                Explore important health measurements and
+                clinical indicators used in risk analysis.
+            </p>
+        </div>
+    </div>
+
+    <div class="info-card">
+        <img
+            src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=600"
+            alt="Healthcare professionals"
+        >
+        <div class="info-card-content">
+            <h3>Heart Health Insights</h3>
+            <p>
+                Learn about heart health and the importance
+                of regular medical check-ups.
+            </p>
+        </div>
+    </div>
+
+</section>
+
+
+</section>
+
+        <section class="hero">
+            <h1>Heart Disease Risk Prediction</h1>
+            <p>Enter patient details to get a machine learning prediction.</p>
+        </section>
+
+        <section class="card">
+            <h2>Patient Information</h2>
+
+            <form id="predictionForm">
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label>Age</label>
+                        <input type="number" name="age" required min="1" max="120">
+                    </div>
+
+                    <div class="field">
+                        <label>Sex (1 = Male, 0 = Female)</label>
+                        <input type="number" name="sex" min="0" max="1" required>
+                    </div>
+
+                    <div class="field">
+                        <label>Chest Pain Type (0-3)</label>
+                        <input type="number" name="cp" min="0" max="3" required>
+                    </div>
+
+                    <div class="field">
+                        <label>Resting Blood Pressure</label>
+                        <input type="number" name="trestbps" required>
+                    </div>
+
+                    <div class="field">
+                        <label>Cholesterol</label>
+                        <input type="number" name="chol" required>
+                    </div>
+
+                    <div class="field">
+                        <label>Fasting Blood Sugar (0/1)</label>
+                        <input type="number" name="fbs" min="0" max="1" required>
+                    </div>
+
+                    <div class="field">
+                        <label>Resting ECG (0-2)</label>
+                        <input type="number" name="restecg" min="0" max="2" required>
+                    </div>
+
+                    <div class="field">
+                        <label>Maximum Heart Rate</label>
+                        <input type="number" name="thalach" required>
+                    </div>
+
+                    <div class="field">
+                        <label>Exercise Angina (0/1)</label>
+                        <input type="number" name="exang" min="0" max="1" required>
+                    </div>
+
+                    <div class="field">
+                        <label>Oldpeak</label>
+                        <input type="number" name="oldpeak" step="0.1" required>
+                    </div>
+
+                    <div class="field">
+                        <label>Slope (0-2)</label>
+                        <input type="number" name="slope" min="0" max="2" required>
+                    </div>
+
+                    <div class="field">
+                        <label>CA (0-4)</label>
+                        <input type="number" name="ca" min="0" max="4" required>
+                    </div>
+
+                    <div class="field">
+                        <label>Thal (0-3)</label>
+                        <input type="number" name="thal" min="0" max="3" required>
+                    </div>
+
+                </div>
+
+                <button type="submit" id="predictBtn">
+                    Predict Heart Disease Risk
+                </button>
+
+            </form>
+
+            <div id="result" class="result"></div>
+            <div class="confusion-section">
+    <h2>Confusion Matrix</h2>
+
+    <table class="confusion-table">
+        <tr>
+            <th>Actual / Predicted</th>
+            <th>Lower Risk (0)</th>
+            <th>Higher Risk (1)</th>
+        </tr>
+        <tr>
+            <th>Actual 0</th>
+            <td>19</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <th>Actual 1</th>
+            <td>1</td>
+            <td>32</td>
+        </tr>
+    </table>
+</div>
+
+        </section>
+        <section class="dashboard">
+    <h2>Model Performance Dashboard</h2>
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <h3>Accuracy</h3>
+            <p id="accuracy">Loading...</p>
+        </div>
+
+        <div class="metric-card">
+            <h3>Precision</h3>
+            <p id="precision">Loading...</p>
+        </div>
+
+        <div class="metric-card">
+            <h3>Recall</h3>
+            <p id="recall">Loading...</p>
+        </div>
+
+        <div class="metric-card">
+            <h3>F1 Score</h3>
+            <p id="f1">Loading...</p>
+        </div>
+    </div>
+</section>
+        <footer>
+            <p>CardioAI | Machine Learning Project</p>
+            <small>Educational use only. Not a medical diagnosis.</small>
+            <p>© 2026 CardioAI | Developed by Vivek Kolpe</p>
+        </footer>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

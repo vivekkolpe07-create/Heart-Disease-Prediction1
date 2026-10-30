@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | CardioAI</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0b1222;
+            color: white;
+            padding: 20px;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 420px;
+            background: #151f35;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            color: #35baff;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #aab8d0;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #34445f;
+            border-radius: 8px;
+            background: #0b1222;
+            color: white;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 8px;
+            background: #159ee8;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #087fc2;
+        }
+
+        .bottom-text {
+            text-align: center;
+            margin-top: 22px;
+            color: #b8c4d8;
+        }
+
+        a {
+            color: #35baff;
+            text-decoration: none;
+        }
+
+        #message {
+            margin-top: 15px;
+            text-align: center;
+            color: #ff7777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+        <h1>❤️ CardioAI</h1>
+        <p class="subtitle">Welcome Back! Please Login</p>
+
+        <form id="loginForm">
+
+            <label for="email">Email Address</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button type="submit">Login</button>
+
+            <p id="message"></p>
+        </form>
+
+        <p class="bottom-text">
+            Don't have an account?
+            <a href="/signup">Sign Up</a>
+        </p>
+    </div>
+
+    <script src="/auth.js"></script>
+
+</body>
+</html>
